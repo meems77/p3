@@ -1,7 +1,7 @@
 @extends('_master')
 
 @section('title')
-    Developer's Best Friend: Faker
+    Faker
 @stop
 
 @section('head')
@@ -10,17 +10,7 @@
 
 @section('content')
     <h1>Developer's Best Friend: User Faker</h1>
-    <p>You can instantly create multiple fake users for testing purposes.</p>	
-@stop
-
-@section('form')
-	{{ Form::open(array(
-   	 'url' => 'our/target/route',
-    	'method' => 'GET',
-    	'accept-charset' => 'ISO-8859-1'
-	)) }}
-
-{{ Form::close() }}
+    <p>You can instantly create multiple paragraphs of lorem ipsum text.</p>
 @stop
 
 @section('footer')
