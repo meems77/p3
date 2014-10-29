@@ -2,14 +2,16 @@
 <html>
 <head>
 
-    <title>@yield('title', 'Developer's Best Friend')</title>
+    <title>@yield('title', 'Developer\'s Best Friend')</title>
 
     <meta charset='utf-8'>
-	<!--Extra Style-->
-    <link rel='stylesheet' href='{{ asset('styles/p3styles.css') }}'>
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+	<!--Extra Style-->
+    <link rel='stylesheet' href='{{ asset('styles/p3styles.css') }}'>
+
 
     @yield('head')
 

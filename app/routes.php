@@ -16,14 +16,11 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/practice', function() {
-    echo App::environment();
-});
 
 Route::get('/lorem-ipsum', function() {
-    echo App::environment();
+    return View::make('lorem-ipsum');
 });
 
 Route::get('/faker', function() {
-    echo App::environment();
+    return View::make('faker');
 });
