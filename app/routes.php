@@ -23,3 +23,7 @@ Route::get('/practice', function() {
 Route::get('/lorem-ipsum', function() {
     echo App::environment();
 });
+
+Route::get('/faker', function() {
+    echo App::environment();
+});
