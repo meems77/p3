@@ -15,3 +15,11 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/practice', function() {
+    echo App::environment();
+});
+
+Route::get('/lorem-ipsum', function() {
+    echo App::environment();
+});
