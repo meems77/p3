@@ -20,37 +20,51 @@
     	'method' => 'GET',
     	'accept-charset' => 'ISO-8859-1'
 	)) }}
-			
-		{{Form::label('number', 'Number of Users (1-100)');}}
-
-		{{Form::text('number', ' ');}}
 		
+		<!--User field-->
+		{{Form::label('number', 'Number of Users (1-100)');}}
+		{{Form::text('number', ' ');}}
+		<br>
+		
+		<!--Blurb Field-->
+		{{ Form::checkbox('blurb', true, Input::get('blurb')) }} 
+		{{Form::label('blurb', 'Include blurb');}}
+    	
+		<br>
+		<!--Submit Button-->
 		{{Form::submit('Submit',array('class' => 'btn btn-primary'));}}
 
 
 
 	{{ Form::close() }}
 	
+	
 	@if($errors->has())
-	<div class="errors">
-		@foreach ($errors->all() as $error)
-		<ul>
-			<li>{{$error}}</li>
-		</ul>
+	<p class="bg-danger">
+		@foreach ($errors->all() as $error_message)
+		{{$error_message}}<br>		
 		@endforeach
-	</div>
+	</p>
 	@endif
-
+	<br>
+	<br>
+	
 	@for ($i=0; $i < $number; $i++)
 		<p>{{{$faker->name}}}<br/>
 		{{{$faker->streetAddress}}}<br/>
 		{{{$faker->city}}}, {{{$faker->stateAbbr}}} {{{$faker->postcode}}}<br/>
 		{{{$faker->phoneNumber}}}
+		<br>
+		
+		//Include blurb if checked
+		@if(Input::get('blurb'))
+			{{{$faker->text}}};
+		@endif
 		</p>
 	@endfor
 
 @stop
 
 @section('footer')
-    <script src="/js/hello-world.js"></script>
+    <!--<script src="/js/hello-world.js"></script>-->
 @stop

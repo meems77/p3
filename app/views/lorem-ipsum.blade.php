@@ -25,13 +25,11 @@
 	{{ Form::close() }}
 	
 	@if($errors->has())
-	<div class="errors">
-		@foreach ($errors->all() as $error)
-		<ul>
-			<li>{{$error}}</li>
-		</ul>
+	<p class="bg-danger">
+		@foreach ($errors->all() as $error_message)
+			{{$error_message}}<br>
 		@endforeach
-	</div>
+	</p>
 	@endif
 
 	@foreach ($paragraphs as $paragraph)
@@ -42,5 +40,5 @@
 
 
 @section('footer')
-    <script src="/js/hello-world.js"></script>
+    <!--<script src="/js/hello-world.js"></script>-->
 @stop

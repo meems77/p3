@@ -32,8 +32,8 @@ Route::get('/lorem-ipsum/{number?}', function() {
 			->withErrors($validator);
 	} else {
 	//result
-	$generator = new Lorem();	
-	$paragraphs = $generator->getParagraphs($number);
+		$generator = new Lorem();	
+		$paragraphs = $generator->getParagraphs($number);
 		return View::make('lorem-ipsum')
 		->with('number', $number)
 		->with('paragraphs', $paragraphs);

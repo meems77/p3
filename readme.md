@@ -1,5 +1,5 @@
 ##Project 3
-M. Lai
+Mimi T Lai
 Spring 2014
 
 ## Live URL
