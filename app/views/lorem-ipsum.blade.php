@@ -14,10 +14,20 @@
 
 @section('form')
 	{{ Form::open(array(
-   	 'url' => 'our/target/route',
+   	 'url' => 'lorem-ipsum',
     	'method' => 'GET',
     	'accept-charset' => 'ISO-8859-1'
 	)) }}
+	
+			<label for="number">Number of Paragraphs</label>
+
+			<input name="number" type="text" value="Enter number" id="number">
+
+			<input type="submit" value="Submit">
+
+
+{{ Form::close() }}
+
 @stop
 
 
