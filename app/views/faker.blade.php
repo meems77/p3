@@ -21,7 +21,7 @@
     	'accept-charset' => 'ISO-8859-1'
 	)) }}
 			
-		{{Form::label('number', 'Number of Users');}}
+		{{Form::label('number', 'Number of Users (1-100)');}}
 
 		{{Form::text('number', ' ');}}
 		
@@ -30,6 +30,16 @@
 
 
 	{{ Form::close() }}
+	
+	@if($errors->has())
+	<div class="errors">
+		@foreach ($errors->all() as $error)
+		<ul>
+			<li>{{$error}}</li>
+		</ul>
+		@endforeach
+	</div>
+	@endif
 
 	@for ($i=0; $i < $number; $i++)
 		<p>{{{$faker->name}}}<br/>

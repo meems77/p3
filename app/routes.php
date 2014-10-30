@@ -19,16 +19,19 @@ Route::get('/', function()
 Route::get('/lorem-ipsum/{number?}', function() {
 	$number = Input::get('number');
 
+	//validate
 	$rules = array(
 		'number' => "Integer|Between:1,30"
 	);
 	$validator = Validator::make(Input::all(), $rules);
+	
+	//error messages
 	if ($validator->fails()) {
 		$messages = $validator->messages();
 		return Redirect::to('lorem-ipsum')
 			->withErrors($validator);
 	} else {
-
+	//result
 	$generator = new Lorem();	
 	$paragraphs = $generator->getParagraphs($number);
 		return View::make('lorem-ipsum')
@@ -43,30 +46,24 @@ Route::get('/faker/{number?}', function() {
 	$number = Input::get('number');
 	$faker = Faker\Factory::create();
 	
+    //validate
 	$rules = array(
-		'number' => "Integer|Between:1,200"
+		'number' => "Integer|Between:1,100"
 	);
 	
 	$validator = Validator::make(Input::all(), $rules);
     
+	//error messages
     if ($validator->fails()) {
 			$messages = $validator->messages();
 		return Redirect::to('faker')
 			->withErrors($validator);
 	} else {
-
+	//result
     	return View::make('faker')
     		->with('number', $number)
 			->with('faker', $faker);	
 	}	
 		
-		
 });
 
-Route::get('/faker/{number?}', function() {
-	$number = Input::get('number');
-	$faker = Faker\Factory::create();
-    return View::make('faker')
-    	->with('number', $number)
-		->with('faker', $faker);	
-});
