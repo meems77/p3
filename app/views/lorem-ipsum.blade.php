@@ -1,7 +1,7 @@
 @extends('_master')
 
 @section('title')
-    Faker
+    Lorem Ipsum
 @stop
 
 @section('head')
@@ -20,7 +20,7 @@
 	)) }}
 		{{Form::label('number', 'Number of paragraphs?');}}
 		{{Form::text('number', '');}}
-		{{Form::submit('Submit');}}
+		{{Form::submit('Submit',array('class' => 'btn btn-primary'));}}
 
 	{{ Form::close() }}
 	
