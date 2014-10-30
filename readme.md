@@ -1,3 +1,7 @@
+##Project 3
+M. Lai
+Spring 2014
+
 ## Live URL
 (http://p3.mimitlai.com)
 
@@ -9,6 +13,8 @@ Features include error validation, responsive navigation, and Bootstrap styling.
 ## Demo
 
 ## Details for teaching team
+Features include error validation, responsive navigation, and Bootstrap styling.
+
 Used Badcow/Lorem and fzainnotto/faker from packagist.
 
 ## Outside Code
