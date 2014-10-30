@@ -21,14 +21,26 @@
     	'accept-charset' => 'ISO-8859-1'
 	)) }}
 	
-			<label for="number">Number of Paragraphs</label>
+			<!--<label for="number">Number of Users</label>
 
 			<input name="number" type="text" value="Enter number" id="number">
 
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit">-->
+			
+		{{Form::label('number', 'Number of Users');}}
+
+		{{Form::text('number', 'Enter number');}}
+		
+		{{Form::submit('Submit');}}
 
 
-{{ Form::close() }}
+
+	{{ Form::close() }}
+
+	@for ($i=0; $i < $number; $i++)
+		<p>{{{$faker->name}}}<br/></p>
+	@endfor
+
 @stop
 
 @section('footer')

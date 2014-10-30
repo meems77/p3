@@ -20,6 +20,10 @@ Route::get('/lorem-ipsum', function() {
     return View::make('lorem-ipsum');
 });
 
-Route::get('/faker', function() {
-    return View::make('faker');
+Route::get('/faker/{number?}', function() {
+	$number = Input::get('number');
+	$faker = Faker\Factory::create();
+    return View::make('faker')
+    	->with('number', $number)
+		->with('faker', $faker);	
 });
