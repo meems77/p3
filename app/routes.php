@@ -19,7 +19,8 @@ Route::get('/', function()
 Route::get('/lorem-ipsum/{number?}', function() {
 	$number = Input::get('number');
 
-	//validate
+    //validate: http://laravel.com/docs/4.2/validation
+	//Why does adding "required|" makes a redirector loop?
 	$rules = array(
 		'number' => "Integer|Between:1,30"
 	);
@@ -45,8 +46,6 @@ Route::get('/faker/{number?}', function() {
 	$number = Input::get('number');
 	$faker = Faker\Factory::create();
 	
-    //validate: http://laravel.com/docs/4.2/validation
-	//Why does adding "requred|" makes a redirector loop?
 	$rules = array(
 		'number' => "Integer|Between:1,100"
 	);
