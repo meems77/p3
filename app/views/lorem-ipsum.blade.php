@@ -18,7 +18,7 @@
     	'method' => 'GET',
     	'accept-charset' => 'ISO-8859-1'
 	)) }}
-		{{Form::label('number', 'Number of paragraphs?');}}
+		{{Form::label('number', 'Number of paragraphs? (1-30)');}}
 		{{Form::text('number', '');}}
 		{{Form::submit('Submit',array('class' => 'btn btn-primary'));}}
 
