@@ -9,8 +9,8 @@
 @stop
 
 @section('content')
-    <h1>Developer's Best Friend: Fake Users?</h1>
-    <p>You can instantly create multiple fake users for testing purposes.</p>	
+    <h1>Developer's Best Friend: Fake Users</h1>
+    <p>You can instantly create multiple random fake users for testing purposes.</p>	
 @stop
 
 @section('form')
@@ -25,6 +25,16 @@
 		{{Form::label('number', 'Number of Users (1-100)');}}
 		{{Form::text('number', ' ');}}
 		<br>
+
+		<!--Address Field-->
+		{{ Form::checkbox('address', true, Input::get('address')) }} 
+		{{Form::label('address', 'Include address');}}
+
+
+		<!--Phone Field-->
+		{{ Form::checkbox('phone', true, Input::get('phone')) }} 
+		{{Form::label('phone', 'Include phone');}}
+
 		
 		<!--Blurb Field-->
 		{{ Form::checkbox('blurb', true, Input::get('blurb')) }} 
@@ -50,13 +60,24 @@
 	<br>
 	
 	@for ($i=0; $i < $number; $i++)
-		<p>{{{$faker->name}}}<br/>
-		{{{$faker->streetAddress}}}<br/>
-		{{{$faker->city}}}, {{{$faker->stateAbbr}}} {{{$faker->postcode}}}<br/>
-		{{{$faker->phoneNumber}}}
-		<br>
+		<p><strong>{{{$faker->name}}}</strong><br/>
 		
-		//Include blurb if checked
+		<!--include if address checked-->
+		@if(Input::get('address'))
+			{{{$faker->streetAddress}}}<br/>
+			{{{$faker->city}}}, {{{$faker->stateAbbr}}} {{{$faker->postcode}}}	
+		<br>
+		@endif
+			
+		
+		<!--include if phone checked-->
+		@if(Input::get('phone'))
+			{{{$faker->phoneNumber}}};
+			<br>
+		@endif
+		
+		
+		<!--include blurb if checked-->
 		@if(Input::get('blurb'))
 			{{{$faker->text}}};
 		@endif

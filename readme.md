@@ -23,5 +23,6 @@ Used Badcow/Lorem and fzainnotto/faker from packagist.
 [Bad Cow Lorem-Ipsum](https://packagist.org/packages/badcow/lorem-ipsum)
 [Faker](https://packagist.org/packages/fzaninotto/faker)
 [Code Bright](http://daylerees.com/codebright)
+[Laravel](http://laravel.com/docs/4.2/)
 
 

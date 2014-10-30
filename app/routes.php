@@ -25,18 +25,17 @@ Route::get('/lorem-ipsum/{number?}', function() {
 	);
 	$validator = Validator::make(Input::all(), $rules);
 	
-	//error messages
-	if ($validator->fails()) {
-		$messages = $validator->messages();
-		return Redirect::to('lorem-ipsum')
-			->withErrors($validator);
-	} else {
-	//result
+	//from Code Bright: http://daylerees.com/codebright/validation
+	if ($validator->passes()) {
 		$generator = new Lorem();	
 		$paragraphs = $generator->getParagraphs($number);
 		return View::make('lorem-ipsum')
 		->with('number', $number)
 		->with('paragraphs', $paragraphs);
+	} else {	
+		$messages = $validator->messages();
+		return Redirect::to('lorem-ipsum')
+			->withErrors($validator);
 	}
 });
 
@@ -46,23 +45,22 @@ Route::get('/faker/{number?}', function() {
 	$number = Input::get('number');
 	$faker = Faker\Factory::create();
 	
-    //validate
+    //validate: http://laravel.com/docs/4.2/validation
+	//Why does adding "requred|" makes a redirector loop?
 	$rules = array(
 		'number' => "Integer|Between:1,100"
 	);
 	
 	$validator = Validator::make(Input::all(), $rules);
     
-	//error messages
-    if ($validator->fails()) {
-			$messages = $validator->messages();
-		return Redirect::to('faker')
-			->withErrors($validator);
-	} else {
-	//result
-    	return View::make('faker')
+    if ($validator->passes()) {
+			return View::make('faker')
     		->with('number', $number)
 			->with('faker', $faker);	
+	} else {
+			$messages = $validator->messages();
+			return Redirect::to('faker')
+			->withErrors($validator);
 	}	
 		
 });
