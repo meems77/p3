@@ -20,16 +20,10 @@
     	'method' => 'GET',
     	'accept-charset' => 'ISO-8859-1'
 	)) }}
-	
-			<!--<label for="number">Number of Users</label>
-
-			<input name="number" type="text" value="Enter number" id="number">
-
-			<input type="submit" value="Submit">-->
 			
 		{{Form::label('number', 'Number of Users');}}
 
-		{{Form::text('number', 'Enter number');}}
+		{{Form::text('number', ' ');}}
 		
 		{{Form::submit('Submit');}}
 
@@ -38,7 +32,11 @@
 	{{ Form::close() }}
 
 	@for ($i=0; $i < $number; $i++)
-		<p>{{{$faker->name}}}<br/></p>
+		<p>{{{$faker->name}}}<br/>
+		{{{$faker->streetAddress}}}<br/>
+		{{{$faker->city}}}, {{{$faker->stateAbbr}}} {{{$faker->postcode}}}<br/>
+		{{{$faker->phoneNumber}}}
+		</p>
 	@endfor
 
 @stop

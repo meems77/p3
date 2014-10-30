@@ -16,8 +16,22 @@ Route::get('/', function()
 	return View::make('index');
 });
 
-Route::get('/lorem-ipsum', function() {
-    return View::make('lorem-ipsum');
+Route::get('/lorem-ipsum/{number?}', function() {
+	$number = Input::get('number');
+	$generator = new Lorem();
+	$paragraphs = $generator->getParagraphs($number);
+	return View::make('lorem-ipsum')
+		->with('number', $number)
+		->with('paragraphs', $paragraphs);
+		
+});
+
+Route::get('/faker/{number?}', function() {
+	$number = Input::get('number');
+	$faker = Faker\Factory::create();
+    return View::make('faker')
+    	->with('number', $number)
+		->with('faker', $faker);	
 });
 
 Route::get('/faker/{number?}', function() {

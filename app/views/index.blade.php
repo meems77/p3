@@ -13,6 +13,9 @@
     <p>You can instantly create multiple paragraphs of lorem ipsum text.</p>
 @stop
 
+
+
+
 @section('footer')
     <script src="/js/hello-world.js"></script>
 @stop

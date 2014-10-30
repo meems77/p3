@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    <h1>Welcome!</h1>
+    <h1>Developer's Best Friend: Lorem Ipsum</h1>
 @stop
 
 @section('form')
@@ -18,15 +18,15 @@
     	'method' => 'GET',
     	'accept-charset' => 'ISO-8859-1'
 	)) }}
+		{{Form::label('number', 'Number of paragraphs?');}}
+		{{Form::text('number', '');}}
+		{{Form::submit('Submit');}}
+
+	{{ Form::close() }}
 	
-			<label for="number">Number of Paragraphs</label>
-
-			<input name="number" type="text" value="Enter number" id="number">
-
-			<input type="submit" value="Submit">
-
-
-{{ Form::close() }}
+	@foreach ($paragraphs as $paragraph)
+		<p>{{{$paragraph}}}</p>
+	@endforeach
 
 @stop
 
