@@ -11,6 +11,7 @@ Developer's best friend provides tools for creating fake users and lorem ipsum t
 Features include error validation, responsive navigation, and Bootstrap styling.
 
 ## Demo
+(http://screencast.com/t/QyZRRTLOGI)
 
 ## Details for teaching team
 Features include error validation, responsive navigation, and Bootstrap styling.
