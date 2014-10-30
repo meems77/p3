@@ -9,7 +9,7 @@
 @stop
 
 @section('content')
-    <h1>Developer's Best Friend: User Faker</h1>
+    <h1>Developer's Best Friend: Fake Users?</h1>
     <p>You can instantly create multiple fake users for testing purposes.</p>	
 @stop
 
